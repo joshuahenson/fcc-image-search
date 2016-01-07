@@ -1,27 +1,32 @@
-API Basejump: URL Shortener Microservice
+API Basejump: Image Search Abstraction Layer
 
 User stories:
 
-I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+I can get the image URLs, alt text and page urls for a set of images relating to a given search string.
 
-If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
+I can paginate through the responses by adding a ?offset=2 parameter to the URL.
 
-When I visit that shortened URL, it will redirect me to my original link.
+I can get a list of the most recently submitted search strings.
 
-Example creation usage:
+Example searches:
 
-https://short1.herokuapp.com/new/https://www.google.com
+https://search22.herokuapp.com/search/cats
 
-https://short1.herokuapp.com/new/http://freecodecamp.com/news
+https://search22.herokuapp.com/search/cats?offset=2
 
-Example creation output:
+Search output:
+[
+ {
+  "image":"https://upload.wikimedia.org/wikipedia/commons/1/1e/Large_Siamese_cat_tosses_a_mouse.jpg",
+  "text":"A cat that is playing with a",
+  "page":"https://en.wikipedia.org/wiki/Cat"
+ },...
+]
 
-{ "original_url": "http://freecodecamp.com/news", "short_url": "https://short1.herokuapp.com/4" }
+Example latest:
 
-Usage:
+https://search22.herokuapp.com/latest
 
-https://short1.herokuapp.com/4
+Latest output:
 
-Will redirect to:
-
-http://freecodecamp.com/news
+["kitties","kittens","cats", ...]
