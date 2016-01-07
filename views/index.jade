@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+	head
+		title Image Search
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin='anonymous')
+	body
+		.container
+			h1.header
+				| API Basejump: Image Search Abstraction Layer
+			blockquote
+				| User stories:
+				ol
+					li 
+						| I can get the image URLs, alt text and page urls for a set of images relating to a given search string.
+					li
+						| I can paginate through the responses by adding a ?offset=2 parameter to the URL.
+					li
+						| I can get a list of the most recently submitted search strings.
+			h3 Example searches:
+			a(href='https://search22.herokuapp.com/search/cats') https://search22.herokuapp.com/search/cats
+			br
+			a(href='https://search22.herokuapp.com/search/cats?offset=2') https://search22.herokuapp.com/search/cats?offset=2
+			h3 Search output:
+			.well 
+				|[
+				br
+				|&emsp;{
+				br
+				|&emsp;&emsp;"image":"https://upload.wikimedia.org/wikipedia/commons/1/1e/Large_Siamese_cat_tosses_a_mouse.jpg",
+				br 
+				|&emsp;&emsp;"text":"A cat that is playing with a",
+				br
+				|&emsp;&emsp;"page":"https://en.wikipedia.org/wiki/Cat"
+				br
+				|&emsp;},...
+				br
+				|]
+			h3 Example latest:
+			a(href='https://search22.herokuapp.com/latest') https://search22.herokuapp.com/latest
+			h3 Latest output:
+			.well
+				|["kitties","kittens","cats", ...]
